@@ -19,6 +19,11 @@ class AuthService {
     return { token };
   }
 
+  async verifyToken(token: string): Promise<{ id: string; }> {
+    if (!token) throw new Error("Unauthorized");
+    return jwt.verify(token, process.env.JWT_SECRET!) as { id: string };
+  }
+
   private generateToken(userId: string) {
     return jwt.sign({ id: userId }, process.env.JWT_SECRET!, {
       expiresIn: "1h",

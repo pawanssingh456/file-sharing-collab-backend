@@ -1,11 +1,16 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { Server } from "socket.io";
+import { createServer } from "http";
+import { initializeSocket } from "./socket";
 
-import dbConnection from "./db";
+import dbConnection from "./configrations/db";
 
-import authRouter from "./routes/auth";
-import fileRouter from "./routes/file";
+import AuthRoutes from "./routes/auth";
+import FileRoutes from "./routes/file";
+import CommentRoutes from "./routes/comment";
+import DocumentRoutes from "./routes/document";
 
 dotenv.config();
 dbConnection.connect();
@@ -13,18 +18,26 @@ dbConnection.connect();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+const authRoutes = new AuthRoutes();
+const fileRoutes = new FileRoutes()
+const commentRoutes = new CommentRoutes()
+const documentRoutes = new DocumentRoutes()
+
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/auth", authRouter);
-app.use("/files", fileRouter);
+app.use('/auth', authRoutes.router);
+app.use("/files", fileRoutes.router);
+app.use("/comments", commentRoutes.router)
+app.use("/documents", documentRoutes.router)
 
-// Test route
-app.get("/", (req, res) => {
-  res.send("File Sharing Collab Backend");
-});
+const httpServer = createServer(app);
+const io = new Server(httpServer, { cors: { origin: "*" } });
+
+// Set up Redis adapter and Socket.IO handlers
+initializeSocket(io);
 
 // Start server
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

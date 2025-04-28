@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 uploads/
+dump.rdb
 
 # Environment variables
 .env

@@ -27,7 +27,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mongodb-js/saslprep@^1.1.5":
+"@mongodb-js/saslprep@^1.1.5", "@mongodb-js/saslprep@^1.1.9":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@mongodb-js/saslprep/-/saslprep-1.2.2.tgz#09506f29cc2a99d9d7b951caa7fffc87e522a6d3"
   integrity sha512-EB0O3SCSNRUFk66iRCpI+cXzIjdswfCs7F6nOC3RAGJ7xr5YhaicvsRwJ9eyzYvYRlCSDUO/c7g4yNulxKC1WA==
@@ -344,7 +344,7 @@ braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-bson@^6.7.0:
+bson@^6.10.3, bson@^6.7.0:
   version "6.10.3"
   resolved "https://registry.yarnpkg.com/bson/-/bson-6.10.3.tgz#5f9a463af6b83e264bedd08b236d1356a30eda47"
   integrity sha512-MTxGsqgYTwfshYWTRdmZRC+M7FnG1b4y7RO7p2k3X24Wq0yv1m77Wsj0BzlPzd/IowgESfsruQCUToa7vbOpPQ==
@@ -800,6 +800,11 @@ isarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==
 
+isomorphic.js@^0.2.4:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/isomorphic.js/-/isomorphic.js-0.2.5.tgz#13eecf36f2dba53e85d355e11bf9d4208c6f7f88"
+  integrity sha512-PIeMbHqMt4DnUP3MA/Flc0HElYjMXArsw1qwJZcm9sqR8mq3l8NYizFMty0pWwE/tzIGH3EKK5+jes5mAr85yw==
+
 jsonwebtoken@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-9.0.2.tgz#65ff91f4abef1784697d40952bb1998c504caaf3"
@@ -837,6 +842,13 @@ kareem@2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.6.3.tgz#23168ec8ffb6c1abfd31b7169a6fb1dd285992ac"
   integrity sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==
+
+lib0@^0.2.102, lib0@^0.2.85, lib0@^0.2.94, lib0@^0.2.99:
+  version "0.2.104"
+  resolved "https://registry.yarnpkg.com/lib0/-/lib0-0.2.104.tgz#1d9c8d4a8a88897b543a6f81fbd92e8605080282"
+  integrity sha512-1tqKRANSPTcjs/yjPoKh52oRM2u5AYdd8jie8sDiN8/5kpWWiQSHUGgtB4VEXLw1chVL3QPSPp8q9RWqzSn2FA==
+  dependencies:
+    isomorphic.js "^0.2.4"
 
 lodash.includes@^4.3.0:
   version "4.3.0"
@@ -966,6 +978,15 @@ mongodb@6.7.0:
   dependencies:
     "@mongodb-js/saslprep" "^1.1.5"
     bson "^6.7.0"
+    mongodb-connection-string-url "^3.0.0"
+
+mongodb@^6.7.0:
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-6.16.0.tgz#2a7a1986ec151d9c738fc8ce4cf4324c3f728a2f"
+  integrity sha512-D1PNcdT0y4Grhou5Zi/qgipZOYeWrhLEpk33n3nm6LGtz61jvO88WlrWCK/bigMjpnOdAUKKQwsGIl0NtWMyYw==
+  dependencies:
+    "@mongodb-js/saslprep" "^1.1.9"
+    bson "^6.10.3"
     mongodb-connection-string-url "^3.0.0"
 
 mongoose@8.5.2:
@@ -1581,10 +1602,40 @@ xtend@^4.0.0:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
+y-mongodb-provider@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/y-mongodb-provider/-/y-mongodb-provider-0.2.0.tgz#db31bf35a1a6b6032da0e9d1cd182fe3f9575b06"
+  integrity sha512-l2Qus1lix7TkxemLGzMJn8HYKiUD+vLJpZxYjtPvdBNbM7THhgVuyHvZYzknUDonvnBBjnpbDaZkKPWOMAsSAw==
+  dependencies:
+    lib0 "^0.2.94"
+    mongodb "^6.7.0"
+
+y-protocols@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/y-protocols/-/y-protocols-1.0.6.tgz#66dad8a95752623443e8e28c0e923682d2c0d495"
+  integrity sha512-vHRF2L6iT3rwj1jub/K5tYcTT/mEYDUppgNPXwp8fmLpui9f7Yeq3OEtTLVF012j39QnV+KEQpNqoN7CWU7Y9Q==
+  dependencies:
+    lib0 "^0.2.85"
+
+y-websocket@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/y-websocket/-/y-websocket-3.0.0.tgz#e86bdb29cc0a53cb8d6e33ec8d24614a723832af"
+  integrity sha512-mUHy7AzkOZ834T/7piqtlA8Yk6AchqKqcrCXjKW8J1w2lPtRDjz8W5/CvXz9higKAHgKRKqpI3T33YkRFLkPtg==
+  dependencies:
+    lib0 "^0.2.102"
+    y-protocols "^1.0.5"
+
 yallist@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
+
+yjs@^13.6.26:
+  version "13.6.26"
+  resolved "https://registry.yarnpkg.com/yjs/-/yjs-13.6.26.tgz#ab0928484f20249bcbe01a73e911b57d918f1bae"
+  integrity sha512-wiARO3wixu7mtoRP5f7LqpUtsURP9SmNgXUt3RlnZg4qDuF7dUjthwIvwxIDmK55dPw4Wl4QdW5A3ag0atwu7g==
+  dependencies:
+    lib0 "^0.2.99"
 
 yn@3.1.1:
   version "3.1.1"

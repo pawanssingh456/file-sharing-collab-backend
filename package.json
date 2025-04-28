@@ -21,6 +21,9 @@
     "redis": "^4.7.0",
     "socket.io": "^4.8.1",
     "uuid": "^11.1.0",
+    "y-mongodb-provider": "^0.2.0",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.26",
     "yup": "^1.6.1"
   },
   "devDependencies": {

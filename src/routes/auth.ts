@@ -3,11 +3,19 @@ import express from "express";
 import AuthService from "../services/AuthService";
 import AuthController from "../controllers/AuthController";
 
-const router = express.Router();
-const authService = new AuthService();
-const authController = new AuthController(authService);
+export default class AuthRoutes {
+  public router: express.Router;
+  private authController: AuthController;
 
-router.post("/register", authController.register.bind(authController));
-router.post("/login", authController.login.bind(authController));
+  constructor() {
+    this.router = express.Router();
+    const authService = new AuthService();
+    this.authController = new AuthController(authService);
+    this.initializeRoutes();
+  }
 
-export default router;
+  private initializeRoutes(): void {
+    this.router.post("/register", this.authController.register.bind(this.authController));
+    this.router.post("/login", this.authController.login.bind(this.authController));
+  }
+}

@@ -5,4 +5,7 @@ export interface IDocument extends Document {
   content: string;
   owner: mongoose.Types.ObjectId;
   collaborators: mongoose.Types.ObjectId[];
+  docId: string;
+  changes: Buffer[];
+  snapshot?: Buffer;
 }

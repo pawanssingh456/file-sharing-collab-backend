@@ -8,6 +8,9 @@ const DocumentSchema = new mongoose.Schema<IDocument>(
     content: { type: String, default: "" },
     owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     collaborators: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    docId: { type: String, required: true, unique: true },
+    changes: { type: [Buffer], required: true },
+    snapshot: Buffer,
   },
   { timestamps: true }
 );
